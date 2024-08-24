@@ -1,5 +1,6 @@
 let menuData;
 const messageDiv = document.getElementById("message-div");
+const loadingPage = document.getElementById("full-page-spinner");
 function getMenu() {
   fetch(
     "https://raw.githubusercontent.com/igdev116/free-food-menus-api/main/db.json"
@@ -29,34 +30,46 @@ function getMenu() {
           `;
         menu.append(card);
       });
+      loadingPage.style.display = "flex";
     });
 }
 
 function takeOrder() {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (menuData) {
         let burgers = menuData;
         const shuffled = burgers.sort(() => 0.5 - Math.random());
         resolve({ items: shuffled.slice(0, 3) });
       }
+      reject("Error in ordering");
     }, 2500);
   });
 }
 
 function orderPrep() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({ order_status: true, paid: false });
-    }, 1500);
+  return new Promise((resolve, reject) => {
+    const orderPreparedSuccessfully = true;
+    if (orderPreparedSuccessfully) {
+      setTimeout(() => {
+        resolve({ order_status: true, paid: false });
+      }, 1500);
+    } else {
+      reject("Error in preparing order");
+    }
   });
 }
 
 function payOrder() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({ order_status: true, paid: true });
-    }, 1000);
+  return new Promise((resolve, reject) => {
+    const paymentSuccessful = true;
+    if (paymentSuccessful) {
+      setTimeout(() => {
+        resolve({ order_status: true, paid: true });
+      }, 1000);
+    } else {
+      reject("Payment failed");
+    }
   });
 }
 
@@ -78,16 +91,23 @@ function handleOrder() {
     })
     .then((paymentStatus) => {
       if (paymentStatus.paid) {
+        loadingPage.style.display = "none";
         thankYouFnc();
       }
+    })
+    .catch((err) => {
+      console.log("Error:", err);
     });
 }
 
-document.addEventListener("DOMContentLoaded", handleOrder);
+document.addEventListener("DOMContentLoaded", () => {
+  getMenu();
+  handleOrder();
+});
 
 // *************Automatic random ordering on click ***************
 
-document.getElementById("auto-order").addEventListener("click", () => {
+function autoOrder() {
   let newElement3;
   let newElement4;
   const newElement = isLoading("Picking 3 random items");
@@ -112,9 +132,9 @@ document.getElementById("auto-order").addEventListener("click", () => {
           innerImage.classList = "innerImage";
           innerImage.append(i);
           foodName.innerHTML = `
-          <p>${order.items[index].name}</p>
-          <p>$${order.items[index].price}/-</p>
-          `;
+            <p>${order.items[index].name}</p>
+            <p>$${order.items[index].price}/-</p>
+            `;
           innerImage.append(foodName);
           imageDiv.append(innerImage);
           //   imageDiv.append(foodName);
@@ -137,12 +157,17 @@ document.getElementById("auto-order").addEventListener("click", () => {
         const orderSuccessMessage = document.createElement("div");
         orderSuccessMessage.classList = "order-sucess-msg";
         orderSuccessMessage.innerHTML = `
-        <p>Your order has been placed</p>
-        <p>thankyou for eating with us today!</p>
-        `;
+          <p>Your order has been placed</p>
+          <p>thankyou for eating with us today!</p>
+          `;
         messageDiv.append(orderSuccessMessage);
       }
     });
+}
+
+document.getElementById("auto-order").addEventListener("click", () => {
+  messageDiv.innerHTML = "";
+  autoOrder();
 });
 
 function downloadImages(img) {
@@ -182,14 +207,3 @@ function hasLoaded(singleOperation) {
     singleOperation.replaceChild(newElement, img);
   }
 }
-
-const largeModal = document.getElementById("largeModal");
-
-largeModal.addEventListener("hidden.bs.modal", function (event) {
-  messageDiv.innerHTML = "";
-});
-
-const closeModal = document.getElementById("close-mod");
-closeModal.addEventListener("click", () => {
-  messageDiv.innerHTML = "";
-});

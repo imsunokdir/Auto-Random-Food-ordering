@@ -384,3 +384,23 @@ nav {
   margin: 3px;
   color: rgb(241, 244, 239);
 }
+
+.full-page-spinner {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(157, 139, 139, 0.568);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.full-page-spinner div {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
