@@ -1,0 +1,386 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.main {
+  display: flex;
+  width: 100%;
+}
+
+.home {
+  background-color: #171b1f;
+  width: calc(100% - 250px);
+  min-height: 500px;
+  margin-left: 250px;
+}
+
+/* ****** Side Bar ****** */
+
+.sidebar {
+  background-color: #1e2123;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  /* justify-content: space-evenly; */
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  /* background-image: url("./images/stacked-2.png"); */
+  /* object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
+  z-index: 1;
+}
+
+.res-details {
+  /* background-color: red; */
+}
+.res-logo {
+  width: 200px;
+  height: 130px;
+  /* background-color: red; */
+}
+.res-logo img {
+  height: 100%;
+  width: 100%;
+}
+
+.res-words {
+  padding: 0;
+  margin-top: -20px;
+  text-align: center;
+}
+.res.name,
+.res-slogan {
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+.res-slogan {
+  margin-top: -5px;
+}
+
+.quick-links,
+.about-us {
+  width: 200px;
+  padding: 10px;
+}
+.quick-links {
+  border-top: 2px solid gray;
+  border-bottom: 2px solid gray;
+  border-width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  /* margin-left: 10px; */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+ul li:hover {
+  color: red;
+  cursor: pointer;
+}
+
+/******** Navbar********** */
+
+nav {
+  width: 100%;
+  background-color: #252c31;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+.nav-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* background-color: blue; */
+  padding: 5px;
+}
+
+.search {
+  flex: 3;
+  /* background-color: bisque; */
+  height: 65%;
+}
+.search input {
+  width: 100%;
+  height: 100%;
+  font-size: 1.4em;
+
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+
+  background-image: url("https://cdn0.iconfinder.com/data/icons/art-designing-glyph/2048/1871_-_Magnifier-512.png");
+  background-position: 10px 5px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  background-size: 25px 25px;
+  border-radius: 10px;
+  border: none;
+  /* outline: none; */
+  background-color: rgba(22, 23, 36, 0.551);
+  color: white;
+}
+.signup,
+.login {
+  flex: 1;
+  background-color: #ff2424;
+  color: white;
+  height: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.avatar {
+  /* flex: 1; */
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 100%;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+/* main-display section */
+.main-display {
+  padding: 10px;
+}
+
+.ad {
+  /* background-color: rgb(138, 138, 150); */
+  width: 100%;
+  height: 250px;
+  border-radius: 20px;
+}
+.ad img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+}
+/* ***** Card ******* */
+
+.food-items {
+  /* background-color: green; */
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.main-display-inner {
+  width: auto;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  grid-auto-rows: 250px;
+  gap: 30px;
+  /* justify-content: space-around; */
+  height: 100%;
+  /* background-color: red; */
+}
+
+.card {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* box-sizing: border-box; */
+  border-radius: 20px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(239, 236, 246);
+  /* margin-top: -16px; */
+  border-radius: 20px;
+}
+
+.food-image {
+  height: 80%;
+  background-color: yellow;
+  border-radius: 20px;
+}
+.food-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+
+.food-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px 5px 10px;
+}
+.food-name-price {
+  display: column;
+  padding: 2px;
+}
+.food-name-price p {
+  padding: 0;
+  margin: 0;
+}
+.food-name-price .name {
+  font-weight: bold;
+}
+.food-name-price .price {
+  font-style: italic;
+  font-size: 1.1em;
+  margin-top: -5px;
+}
+
+.add-food {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(231, 37, 37, 0.218);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.1s ease-in-out;
+}
+
+.add-food:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: rgba(231, 37, 37, 0.419);
+}
+
+.automatic {
+  background-color: rgb(69, 91, 82);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  width: 200px;
+  flex-direction: column;
+  margin-top: -15px;
+  padding: 5px;
+  justify-content: flex-start;
+  border-radius: 5px;
+}
+.automatic p {
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+.btn-automatic {
+  height: 30px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgb(221, 249, 10);
+  border: none;
+  outline: none;
+  transition: transform 0.1s ease-in-out;
+  padding: 5px;
+  margin-top: 5px;
+  color: black;
+}
+
+.btn-automatic:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+  background-color: rgb(94, 246, 12);
+}
+
+/* .custom-modal-lg {
+  height: 800px;
+} */
+.spinner {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+.message-div {
+  display: flex;
+  flex-direction: column;
+}
+.message {
+  display: flex;
+}
+.tick-mark {
+  height: 25px;
+  width: 25px;
+}
+
+.single-operation {
+  background-color: red;
+}
+
+.ordered-images-div {
+  display: flex;
+  justify-content: space-around;
+  /* background-color: red; */
+  height: 135px;
+}
+.ordered-images-div img {
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  /* background-color: red; */
+}
+.innerImage {
+  /* background-color: blue; */
+  height: 100px;
+  width: 100px;
+  /* background-color: red; */
+}
+
+.innerImage div p {
+  line-height: 1;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 0;
+  margin: 0px;
+  margin-top: 5px;
+}
+
+.innerImage img {
+  height: 80%;
+  width: 100%;
+}
+
+.order-sucess-msg {
+  background-color: rgba(212, 38, 55, 0.926);
+  text-align: center;
+  padding: 5px;
+  margin: 0;
+  border-radius: 10px;
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
+}
+
+.order-sucess-msg p {
+  line-height: 1;
+  margin: 3px;
+  color: rgb(241, 244, 239);
+}
