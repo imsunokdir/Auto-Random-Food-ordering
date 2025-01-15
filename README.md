@@ -26,7 +26,7 @@
 
 
 ## Demo
-[Check out the live demo here!](https://imsunokdir.github.io/24-08-24-restaurant/)
+[Check out the live demo here!](https://imsunokdir.github.io/Auto-Random-Food-ordering/)
 
 ## Built With
 - **HTML** for structure.
